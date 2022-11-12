@@ -11,8 +11,9 @@ module.exports = {
 				color300: '#efc8cb',
 				color400: '#e9b4b8',
 			},
-			padding: {
-				big: '50px'
+			dropShadow: {
+				'xl': '0 8px 5px rgb(181, 54, 62)',
+
 			}
 		},
 	},
