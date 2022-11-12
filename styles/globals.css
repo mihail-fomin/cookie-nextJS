@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,5 +16,8 @@ a {
 
 body {
 	color: #fff;
-	font-family: "Source Code Pro";
+	font-family: "Montserrat", sans-serif; 
+}
+h1 {
+	
 }

@@ -9,8 +9,10 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
-		"@fontsource/source-code-pro": "^4.5.12",
-		"@fontsource/source-sans-3": "^4.5.11",
+		"@fontsource/kaushan-script": "^4.5.10",
+		"@fontsource/lobster": "^4.5.11",
+		"@fontsource/montserrat": "^4.5.13",
+		"@fontsource/open-sans": "^4.5.13",
 		"@headlessui/react": "^1.7.4",
 		"@heroicons/react": "^2.0.13",
 		"@icons-pack/react-simple-icons": "^6.0.0",

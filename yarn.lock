@@ -32,15 +32,25 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@fontsource/source-code-pro@^4.5.12":
-  version "4.5.12"
-  resolved "https://registry.yarnpkg.com/@fontsource/source-code-pro/-/source-code-pro-4.5.12.tgz#4ca4dffb485f3f2768dd13157cb09a9b134a9cd1"
-  integrity sha512-6r1dykX7SH1Orm7xUh4sA8pjM1uNPKo9fV+y9/wxS+y/fwN+sMf6b1jHDUTmfEtw1OxlTaHGrr2I7dGeNqxdPA==
+"@fontsource/kaushan-script@^4.5.10":
+  version "4.5.10"
+  resolved "https://registry.yarnpkg.com/@fontsource/kaushan-script/-/kaushan-script-4.5.10.tgz#9ef160b7c653d970a9ce59386b3b281809d3b274"
+  integrity sha512-U6dvqy9jecRs7eL7EkCUhcd0Erb9Q49mppSfkbh6QxBVVUZnFbZY+LGqF4yt8CoXTY0kCvgg5uzNWF/5eIRvFw==
 
-"@fontsource/source-sans-3@^4.5.11":
+"@fontsource/lobster@^4.5.11":
   version "4.5.11"
-  resolved "https://registry.yarnpkg.com/@fontsource/source-sans-3/-/source-sans-3-4.5.11.tgz#1e809c77668ab59156d205891f77a14ce73a3fef"
-  integrity sha512-TStfpJJBW+FPA2cvX9c4Fu5a/Mr6N8WFwsO1BByl/86eC8hLVgWXQzZEi0Y+opMYDjditdBPi//lK4rJIGB58w==
+  resolved "https://registry.yarnpkg.com/@fontsource/lobster/-/lobster-4.5.11.tgz#f2d9f3583cd6c249d1b31efc059cb0d0eebc3a7f"
+  integrity sha512-763GTn/QS42WI8LSZcmrLITvCzs8vHfTQhbltPQ8NWGYRJV9L+C8HIUm7qqL1R8+tyxkmruKlHDqdlpT+dPFXQ==
+
+"@fontsource/montserrat@^4.5.13":
+  version "4.5.13"
+  resolved "https://registry.yarnpkg.com/@fontsource/montserrat/-/montserrat-4.5.13.tgz#58f12419c05e131b09ab17e9181aa24fb9c84b3a"
+  integrity sha512-/XlcNsMFjdWX4Away8Ax/4NgND8Ckk9gVDwgz1sfxF6h+gFHChLOV0IvPrUfCQjZ1F35igg+nR9bSxmjsYEskQ==
+
+"@fontsource/open-sans@^4.5.13":
+  version "4.5.13"
+  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-4.5.13.tgz#2c99e4c055d129a75f14c11b77d040282e0388b8"
+  integrity sha512-/UzqP7ZFk145XAq8KG4pvFPP7UQhtreDGXgqXZjagCDreKxcrhwn/x7DYz9rPcycWkLUVApIybcoczGZiM0cRg==
 
 "@headlessui/react@^1.7.4":
   version "1.7.4"

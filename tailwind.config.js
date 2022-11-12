@@ -13,9 +13,13 @@ module.exports = {
 			},
 			dropShadow: {
 				'xl': '0 8px 5px rgb(181, 54, 62)',
-
-			}
+			},
 		},
+		fontFamily: {
+			body: ['Montserrat', 'sans-serif'],
+			sans: ['Lobster', 'cursive'],
+			serif: ['Kaushan Script', 'cursive'],
+		}
 	},
 	plugins: [],
 }
