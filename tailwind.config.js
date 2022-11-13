@@ -19,6 +19,12 @@ module.exports = {
 			body: ['Montserrat', 'sans-serif'],
 			sans: ['Lobster', 'cursive'],
 			serif: ['Kaushan Script', 'cursive'],
+		},
+		screens: {
+			sm: '480px',
+			md: '768px',
+			lg: '1028px',
+			xl: '1440px',
 		}
 	},
 	plugins: [],
