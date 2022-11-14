@@ -8,7 +8,20 @@ import { TruckIcon } from '@heroicons/react/24/outline'
 import { CakeIcon } from '@heroicons/react/24/outline'
 import { SwatchIcon } from '@heroicons/react/24/outline'
 import { Disclosure } from '@headlessui/react'
-import disc from '../public/images/icons/icons/compact-disk.png'
+
+import discIcon from '../public/images/icons/icons/compact-disk.png'
+import chocoIcon1 from '../public/images/icons/icons/chocolate_1.png'
+import chocoIcon2 from '../public/images/icons/icons/chocolate_2.png'
+import chocoIcon3 from '../public/images/icons/icons/chocolate_3.png'
+import weight from '../public/images/icons/icons/weight.png'
+import ruble from '../public/images/icons/icons/ruble.png'
+import discImage from '../public/images/goods/choco/chocolate_disk.jpg'
+import chocoMilkBelg from '../public/images/goods/choco/chocolate_2.jpg'
+import chocoItal from '../public/images/goods/choco/chocolate_3.jpg'
+import chocoWhiteBelg from '../public/images/goods/choco/chocolate_4.jpg'
+import chocoPina from '../public/images/goods/choco/chocolate_5.jpg'
+
+
 
 export default function Home() {
   return (
@@ -22,7 +35,7 @@ export default function Home() {
                 <Image
                   objectFit="cover"
                   src={logo}
-                  alr='logo'
+                  alt='logo'
                   priority
                 />
               </div>
@@ -43,7 +56,7 @@ export default function Home() {
           <h1 className='pb-8 font-serif text-7xl '>MaryGreatCookie</h1>
           <h2
             className='font-sans text-5xl leading-normal after:block after:bg-white after:h-1 after:w-24 after:my-10 after:mx-auto'>
-            "В году 365 поводов для торта, и я помогу Вам сделать его особенным"
+            &quot;В году 365 поводов для торта, и я помогу Вам сделать его особенным&quot;
           </h2>
           <button
             className='inline-block w-64 p-2 mx-auto text-xl transition duration-200 ease-linear border-2 rounded-lg hover:bg-white hover:text-redColor md:ease-in"'>
@@ -60,7 +73,7 @@ export default function Home() {
             <Image
               objectFit="cover"
               src={mary}
-              alr='mary'
+              alt='mary'
               layout="fill"
               priority
             />
@@ -87,91 +100,322 @@ export default function Home() {
       </div>
 
       {/* Assortment */}
-      <div className='container mx-auto '>
-        <h2
-          className='font-sans text-5xl text-center after:block after:bg-white after:h-1 after:w-24 after:my-10 after:mx-auto'>
-          Ассортимент
-        </h2>
+      <div className='pt-12 text-redColor bg-color300'>
+        <div className='container mx-auto bg-color300'>
+          <h2
+            className='font-sans text-5xl text-center after:block after:bg-white after:h-1 after:w-24 after:my-10 after:mx-auto'>
+            Ассортимент
+          </h2>
 
-        {/* Chocolate */}
-        <h3 className='pb-10 font-sans text-4xl text-center'>Шоколад / Chocolate</h3>
-        <div className='flex gap-8'>
+          {/* Chocolate */}
+          <h3 className='pb-10 font-sans text-4xl text-center'>Шоколад / Chocolate</h3>
+          <div className='flex gap-8'>
 
-          {/* Accordion */}
-          <div className='w-3/5'>
+            {/* Accordion */}
+            <div className='w-3/5'>
 
-            <Disclosure>  {/* Item-1 */}
-              <Disclosure.Button className="block w-full p-2 border"> {/* Accordion-header */}
-                <div className='flex gap-4'>
-                  <div className='w-8'>
-                    <Image
-                      objectFit="cover"
-                      src={disc}
-                      alr='disc'
-                      priority
-                    />
+              <Disclosure>  {/* Item-1 */}
+                <Disclosure.Button className="block w-full px-4 py-2 transition ease-in-out border rounded-lg hover:bg-color400"> {/* Accordion-header */}
+                  <div className='flex justify-between'>
+                    <div className='flex gap-4'>
+                      <div className='w-8'>
+                        <Image
+                          objectFit="cover"
+                          src={discIcon}
+                          alt='discIcon'
+                          priority
+                        />
+                      </div>
+                      <div className=''>Шоколадные диски</div>
+                    </div>
+                    <div className='block w-6 h-6 mx-4 origin-center rotate-45 border-b-2 border-r-2 border-redColor'></div>
                   </div>
-                  <div
-                    className='after:rotate-45 '>
-                    Шоколадные диски
+                </Disclosure.Button>
+                <Disclosure.Panel className="px-4 py-2 border rounded-lg"> {/* Accordion-content */}
+                  <div className='flex'>
+                    <div className='pr-4'>
+                      <Image
+                        objectFit="cover"
+                        src={discImage}
+                        alt='discImage'
+                        priority
+                      />
+                    </div>
+                    <div>
+                      <div>
+                        Набор шоколадных клубничных дисков с сублимированными ягодами (клубника, малина) и шоколадными шариками криспи.
+                      </div>
+                      <div className='flex items-center py-4 '>
+                        <div className='w-12 h-12'>
+                          <Image
+                            objectFit="cover"
+                            src={weight}
+                            alt='weight:'
+                            priority
+                          />
+                        </div>
+                        <div className='px-4'>66 г</div>
+                      </div>
+                      <div className='flex items-center p2-4 '>
+                        <div className='w-12 h-12'>
+                          <Image
+                            objectFit="cover"
+                            src={ruble}
+                            alt='cost:'
+                            priority
+                          />
+                        </div>
+                        <div className='px-4'>250 р</div>
+                      </div>
+                    </div>
                   </div>
-                  <div className='block w-6 h-6 mx-4 origin-center rotate-45 border-b-2 border-r-2 border-redColor'></div>
-                </div>
-              </Disclosure.Button>
-              <Disclosure.Panel className=""> {/* Accordion-content */}
-                <div>
-                  Набор шоколадных клубничных дисков с сублимированными ягодами (клубника, малина) и шоколадными шариками криспи.
-                </div>
-                <div>66 г</div>
-                <div>250 р</div>
-              </Disclosure.Panel>
-            </Disclosure> {/* /Item-1 */}
+                </Disclosure.Panel>
+              </Disclosure> {/* /Item-1 */}
 
-            <Disclosure> {/* Item-2 */}
-              <Disclosure.Button className="block py-2">
-                Клубчничный бельгийский
-              </Disclosure.Button>
-              <Disclosure.Panel className="text-gray-500">
-                Yes! You can purchase a license that you can share with your entire
-                team.
-              </Disclosure.Panel>
-            </Disclosure> {/* /Item-2 */}
-            <Disclosure> {/* Item-3 */}
-              <Disclosure.Button className="block py-2">
-                Молочный итальянский
-              </Disclosure.Button>
-              <Disclosure.Panel className="text-gray-500">
-                Yes! You can purchase a license that you can share with your entire
-                team.
-              </Disclosure.Panel>
-            </Disclosure> {/* /Item-3 */}
-            <Disclosure> {/* Item-4 */}
-              <Disclosure.Button className="block py-2 ">
+              <Disclosure>  {/* Item-2 */}
+                <Disclosure.Button className="block w-full px-4 py-2 transition ease-in-out border rounded-lg hover:bg-color400"> {/* Accordion-header */}
+                  <div className='flex justify-between'>
+                    <div className='flex gap-4'>
+                      <div className='w-8'>
+                        <Image
+                          objectFit="cover"
+                          src={chocoIcon1}
+                          alt='chocoIcon1'
+                          priority
+                        />
+                      </div>
+                      <div className=''>Клубчничный бельгийский</div>
+                    </div>
+                    <div className='block w-6 h-6 mx-4 origin-center rotate-45 border-b-2 border-r-2 border-redColor'></div>
+                  </div>
+                </Disclosure.Button>
+                <Disclosure.Panel className="px-4 py-2 border rounded-lg"> {/* Accordion-content */}
+                  <div className='flex'>
+                    <div className='pr-4'>
+                      <Image
+                        objectFit="cover"
+                        src={chocoMilkBelg}
+                        alt='chocoMilkBelg'
+                        priority
+                      />
+                    </div>
+                    <div>
+                      <div>
+                        Клубничный бельгийский шоколад с сублимированными ягодами (клубника и малина) и шоколадными шариками криспи
+                      </div>
+                      <div className='flex items-center py-4 '>
+                        <div className='w-12 h-12'>
+                          <Image
+                            objectFit="cover"
+                            src={weight}
+                            alt='weight:'
+                            priority
+                          />
+                        </div>
+                        <div className='px-4'>100 г</div>
+                      </div>
+                      <div className='flex items-center p2-4 '>
+                        <div className='w-12 h-12'>
+                          <Image
+                            objectFit="cover"
+                            src={ruble}
+                            alt='cost:'
+                            priority
+                          />
+                        </div>
+                        <div className='px-4'>350 р</div>
+                      </div>
+                    </div>
+                  </div>
+                </Disclosure.Panel>
+              </Disclosure> {/* /Item-2 */}
 
-                Белый бельгийский
-              </Disclosure.Button>
-              <Disclosure.Panel className="text-gray-500">
-                Yes! You can purchase a license that you can share with your entire
-                team.
-              </Disclosure.Panel>
-            </Disclosure> {/* /Item-4 */}
-            <Disclosure> {/* Item-5 */}
-              <Disclosure.Button className="block py-2">
-                Шоколад "Пина колада"
-              </Disclosure.Button>
-              <Disclosure.Panel className="text-gray-500">
-                Yes! You can purchase a license that you can share with your entire
-                team.
-              </Disclosure.Panel>
-            </Disclosure> {/* /Item-5 */}
-          </div>
+              <Disclosure>  {/* Item-3 */}
+                <Disclosure.Button className="block w-full px-4 py-2 transition ease-in-out border rounded-lg hover:bg-color400"> {/* Accordion-header */}
+                  <div className='flex justify-between'>
+                    <div className='flex gap-4'>
+                      <div className='w-8'>
+                        <Image
+                          objectFit="cover"
+                          src={chocoIcon2}
+                          alt='discIcon'
+                          priority
+                        />
+                      </div>
+                      <div className=''>Молочный итальянский</div>
+                    </div>
+                    <div className='block w-6 h-6 mx-4 origin-center rotate-45 border-b-2 border-r-2 border-redColor'></div>
+                  </div>
+                </Disclosure.Button>
+                <Disclosure.Panel className="px-4 py-2 border rounded-lg"> {/* Accordion-content */}
+                  <div className='flex'>
+                    <div className='pr-4'>
+                      <Image
+                        objectFit="cover"
+                        src={chocoItal}
+                        alt='chocoItal'
+                        priority
+                      />
+                    </div>
+                    <div>
+                      <div>
+                        Молочный итальянский шоколад с воздушным рисом в карамели и апельсиновыми цукатами.
+                      </div>
+                      <div className='flex items-center py-4 '>
+                        <div className='w-12 h-12'>
+                          <Image
+                            objectFit="cover"
+                            src={weight}
+                            alt='weight:'
+                            priority
+                          />
+                        </div>
+                        <div className='px-4'>100 г</div>
+                      </div>
+                      <div className='flex items-center p2-4 '>
+                        <div className='w-12 h-12'>
+                          <Image
+                            objectFit="cover"
+                            src={ruble}
+                            alt='cost:'
+                            priority
+                          />
+                        </div>
+                        <div className='px-4'>260 р</div>
+                      </div>
+                    </div>
+                  </div>
+                </Disclosure.Panel>
+              </Disclosure> {/* /Item-3 */}
 
-          {/* Video */}
-          <div className='w-2/5 bg-white'>
+              <Disclosure>  {/* Item-4 */}
+                <Disclosure.Button className="block w-full px-4 py-2 transition ease-in-out border rounded-lg hover:bg-color400"> {/* Accordion-header */}
+                  <div className='flex justify-between'>
+                    <div className='flex gap-4'>
+                      <div className='w-8'>
+                        <Image
+                          objectFit="cover"
+                          src={chocoIcon3}
+                          alt='chocoIcon3'
+                          priority
+                        />
+                      </div>
+                      <div className=''>Белый бельгийский</div>
+                    </div>
 
+                    <div className='block w-6 h-6 mx-4 origin-center rotate-45 border-b-2 border-r-2 border-redColor'></div>
+                  </div>
+                </Disclosure.Button>
+                <Disclosure.Panel className="px-4 py-2 border rounded-lg"> {/* Accordion-content */}
+                  <div className='flex'>
+                    <div className='pr-4'>
+                      <Image
+                        objectFit="cover"
+                        src={chocoWhiteBelg}
+                        alt='discImage'
+                        priority
+                      />
+                    </div>
+                    <div>
+                      <div>
+                        Белый бельгийский шоколад с миндалем и кокосовой стружкой.
+                      </div>
+                      <div className='flex items-center py-4 '>
+                        <div className='w-12 h-12'>
+                          <Image
+                            objectFit="cover"
+                            src={weight}
+                            alt='weight:'
+                            priority
+                          />
+                        </div>
+                        <div className='px-4'>100 г</div>
+                      </div>
+                      <div className='flex items-center p2-4 '>
+                        <div className='w-12 h-12'>
+                          <Image
+                            objectFit="cover"
+                            src={ruble}
+                            alt='cost:'
+                            priority
+                          />
+                        </div>
+                        <div className='px-4'>300 р</div>
+                      </div>
+                    </div>
+                  </div>
+                </Disclosure.Panel>
+              </Disclosure> {/* /Item-4 */}
+
+              <Disclosure>  {/* Item-5 */}
+                <Disclosure.Button className="block w-full px-4 py-2 transition ease-in-out border rounded-lg hover:bg-color400"> {/* Accordion-header */}
+                  <div className='flex justify-between'>
+                    <div className='flex gap-4'>
+                      <div className='w-8'>
+                        <Image
+                          objectFit="cover"
+                          src={chocoIcon1}
+                          alt='chocoIcon1'
+                          priority
+                        />
+                      </div>
+                      <div className=''>Шоколад &quot;Пина колада&quot;</div>
+                    </div>
+
+                    <div className='block w-6 h-6 mx-4 origin-center rotate-45 border-b-2 border-r-2 border-redColor'></div>
+                  </div>
+                </Disclosure.Button>
+                <Disclosure.Panel className="px-4 py-2 border rounded-lg"> {/* Accordion-content */}
+                  <div className='flex'>
+                    <div className='pr-4'>
+                      <Image
+                        objectFit="cover"
+                        src={chocoPina}
+                        alt='chocoPina'
+                        priority
+                      />
+                    </div>
+                    <div>
+                      <div>
+                        Белый бельгийский шоколад с кусочками сублимированного ананаса и кокосовой стружкой
+                      </div>
+                      <div className='flex items-center py-4 '>
+                        <div className='w-12 h-12'>
+                          <Image
+                            objectFit="cover"
+                            src={weight}
+                            alt='weight:'
+                            priority
+                          />
+                        </div>
+                        <div className='px-4'>100 г</div>
+                      </div>
+                      <div className='flex items-center p2-4 '>
+                        <div className='w-12 h-12'>
+                          <Image
+                            objectFit="cover"
+                            src={ruble}
+                            alt='cost:'
+                            priority
+                          />
+                        </div>
+                        <div className='px-4'>350 р</div>
+                      </div>
+                    </div>
+                  </div>
+                </Disclosure.Panel>
+              </Disclosure> {/* /Item-5 */}
+
+            </div>
+
+            {/* Video */}
+            <div className='w-2/5 bg-white'>
+
+            </div>
           </div>
         </div>
       </div>
+
     </body >
   )
 }
