@@ -1,5 +1,7 @@
 module.exports = {
 	content: [
+		"./layout/**/*.{js,ts,jsx,tsx}",
+
 		"./pages/**/*.{js,ts,jsx,tsx}",
 		"./components/**/*.{js,ts,jsx,tsx}",
 	],
@@ -16,9 +18,9 @@ module.exports = {
 			},
 		},
 		fontFamily: {
-			body: ['Montserrat', 'sans-serif'],
-			sans: ['Lobster', 'cursive'],
-			serif: ['Kaushan Script', 'cursive'],
+			logo: ['Kaushan Script', 'cursive'],
+			sans: ['Montserrat', 'sans-serif'],
+			fancy: ['Lobster', 'cursive'],
 		},
 		screens: {
 			sm: '480px',
