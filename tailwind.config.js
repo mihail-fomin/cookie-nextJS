@@ -12,6 +12,7 @@ module.exports = {
 				redColor: '#b5363e',
 				color300: '#efc8cb',
 				color400: '#e9b4b8',
+				color200: '#F3D8DA',
 			},
 			dropShadow: {
 				'xl': '0 8px 5px rgb(181, 54, 62)',
