@@ -7,6 +7,10 @@ module.exports = {
 	],
 	theme: {
 		extend: {
+      gridTemplateRows: {
+        header: "auto 1fr",
+      },
+
 			colors: {
 				mainColor: '#e3a1a5',
 				redColor: '#b5363e',
