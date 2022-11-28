@@ -5,7 +5,7 @@ import Body from '../layout/Body'
 export default function Home() {
 	return (
 		<div className="grid grid-rows-header">
-			<Header />
+			<Header className="z-10"/>
 			<Body />
 		</div>
 	)
