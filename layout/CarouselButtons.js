@@ -1,5 +1,6 @@
 import React from "react";
 
+// TODO try heroicons instead of custom SVG
 export const PrevButton = ({ enabled, onClick }) => (
 	<button
 		className="absolute z-10 items-center justify-center w-16 h-16 -translate-y-1/2 bg-transparent border-0 cursor-pointer top-1/2 touch-manipulation outline-0 fill-[#b5363e] p-0 left-8"

@@ -18,3 +18,6 @@ body {
 	font-size: 24px;
 }
 
+.grid-header {
+  grid-template-columns: auto 1fr;
+}
