@@ -21,7 +21,7 @@ export default function Accordeon() {
 											priority
 										/>
 									</div>
-									<span>Шоколадные диски</span>
+									<span>Трайфл "Сникерс"</span>
 								</div>
 								<ChevronUpIcon
 									className={`${open ? 'rotate-180 transform' : ''
@@ -29,7 +29,6 @@ export default function Accordeon() {
 								/>
 							</Disclosure.Button>
 							<Disclosure.Panel className="px-4 pt-4 pb-2 transition-all">
-
 								<div className='flex gap-4'>
 									<div className='relative w-2/5 h-64 pr-4'>
 										<Image
@@ -41,7 +40,12 @@ export default function Accordeon() {
 										/>
 									</div>
 									<div className='w-3/5 '>
-										Набор шоколадных клубничных дисков с сублимированными ягодами (клубника, малина) и шоколадными шариками криспи.
+										<ul>
+											<li>шоколадный бисквит</li>
+											<li>карамель</li>
+											<li>арахис</li>
+											<li>классический крем-чиз</li>
+										</ul>
 										<div className='flex items-center py-4 '>
 											<div className='relative w-12 h-12 rounded-xl'>
 												<Image
@@ -52,7 +56,7 @@ export default function Accordeon() {
 													priority
 												/>
 											</div>
-											<div className='px-4'>66 г</div>
+											<div className='px-4'>Заказ от 4 шт (~90 г.)</div>
 										</div>
 										<div className='flex items-center p2-4 '>
 											<div className='relative w-12 h-12'>
