@@ -25,3 +25,13 @@ body {
 .accordion-btn{
 	@apply flex items-center justify-between w-full px-4 py-2 text-left transition-all bg-red-100 rounded-lg hover:bg-red-200;
 }
+
+.li-marker::before{
+	content: '';
+	margin: 0 10px;
+	display: inline-block;
+	background-color: #BA1C36;
+	height: 10px;
+	width: 10px;
+	border-radius: 50%;
+}

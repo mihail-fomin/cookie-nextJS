@@ -84,7 +84,7 @@ const EmblaCarousel = ({ slideCount, options = { loop: false } }) => {
 				<div className="flex ml-3 select-none">
 					{range(slideCount).map((i) => (
 						<div className="relative min-w-[70%] pl-12" key={i}>
-							<div className="relative max-h-[600px] flex items-center justify-center overflow-hidden">
+							<div className="relative h-[600px] flex items-center justify-center overflow-hidden">
 								<div
 									className="absolute top-0 bottom-0 left-0 right-0"
 									style={{ transform: `translateX(${parallaxValues[i]}%)` }}
