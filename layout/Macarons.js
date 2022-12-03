@@ -4,7 +4,7 @@ import Carousel from './MacaronsCarousel'
 
 export default function Cupkaes() {
 	return (
-		<section className='py-10 bg-mainColor '>
+		<section className='py-10'>
 			<div className='container mx-auto' >
 				<h3 className='py-10 text-4xl text-center font-fancy'>Макаронс / Macarons</h3>
 				<div className="flex flex-col gap-3 p-2 mx-auto my-4 bg-white max-w-1/2 rounded-2xl">
@@ -22,7 +22,7 @@ export default function Cupkaes() {
 						<div className='px-4'>1 шт - 110 р</div>
 					</div>
 				</div>
-				<div className='flex justify-between'>
+				<div className='flex justify-between gap-12'>
 					<div className='w-2/3'>
 						<Carousel slideCount={6} />
 					</div >

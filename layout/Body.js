@@ -10,7 +10,6 @@ export default function Body() {
 			<AboutMe />
 			<Features />
 			<Assortment />
-
 		</body >
 
 	)

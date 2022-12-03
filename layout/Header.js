@@ -1,13 +1,13 @@
 import Image from 'next/image'
-import {twMerge} from 'tailwind-merge'
+import { twMerge } from 'tailwind-merge'
 
-export default function Header({className = ""}) {
+export default function Header({ className = "" }) {
 	return (
 		<header
 			className={twMerge(
 				"sticky top-0",
-				"shadow-lg shadow-redColor",
-				"bg-mainColor",
+				"shadow-lg shadow-red-700",
+				"bg-red-400",
 				className
 			)}
 		>

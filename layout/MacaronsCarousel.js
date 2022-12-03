@@ -80,10 +80,10 @@ const EmblaCarousel = ({ slideCount, options = { loop: false } }) => {
 
 	return (
 		<div className="container relative mx-auto">
-			<div className="w-3/4 mx-auto overflow-hidden cursor-grab" ref={emblaRef}>
+			<div className="overflow-hidden cursor-grab rounded-3xl" ref={emblaRef}>
 				<div className="flex ml-3 select-none">
 					{range(slideCount).map((i) => (
-						<div className="relative min-w-[80%] pl-3" key={i}>
+						<div className="relative min-w-[70%] pl-12" key={i}>
 							<div className="relative h-[600px] flex items-center justify-center overflow-hidden">
 								<div
 									className="absolute top-0 bottom-0 left-0 right-0"

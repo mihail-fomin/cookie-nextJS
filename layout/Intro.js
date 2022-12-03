@@ -1,7 +1,7 @@
 
 export default function Body() {
 	return (
-		<section className='flex flex-col justify-center h-screen mx-auto text-center bg-mainColor' >
+		<section className='flex flex-col justify-center h-screen mx-auto text-center bg-red-400' >
 			<div className='container mx-auto'>
 				<h1 className='pb-8 font-logo text-7xl '>MaryGreatCookie</h1>
 				<h2
@@ -9,7 +9,7 @@ export default function Body() {
 					&quot;В году 365 поводов для торта, и я помогу Вам сделать его особенным&quot;
 				</h2>
 				<button
-					className='inline-block w-64 p-2 mx-auto text-xl transition duration-200 ease-linear border-2 rounded-3xl hover:bg-white hover:text-redColor md:ease-in"'>
+					className='inline-block w-64 p-2 mx-auto text-xl transition duration-200 ease-linear border-2 rounded-3xl hover:bg-white hover:text-red-700 md:ease-in"'>
 					Узнать больше
 				</button>
 			</div>

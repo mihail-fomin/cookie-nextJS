@@ -7,9 +7,7 @@ export default function Chocolate() {
 			<div className='container mx-auto'>
 				<h3 className='pb-10 text-4xl text-center font-fancy'>Шоколад / Chocolate</h3>
 				<div className='flex gap-8 pb-10 space-between ' >
-
 					<Accordeon />
-
 					< div className='w-1/3 overflow-hidden rounded-3xl' >
 						<ReactPlayer
 							className='rounded-xl'
@@ -23,10 +21,8 @@ export default function Chocolate() {
 						/>
 					</div >
 				</div>
-
 			</div>
 		</section >
-
 	)
 }
 

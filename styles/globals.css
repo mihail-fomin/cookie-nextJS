@@ -21,3 +21,7 @@ body {
 .grid-header {
   grid-template-columns: auto 1fr;
 }
+
+.accordion-btn{
+	@apply flex items-center justify-between w-full px-4 py-2 text-left transition-all bg-red-100 rounded-lg hover:bg-red-200;
+}

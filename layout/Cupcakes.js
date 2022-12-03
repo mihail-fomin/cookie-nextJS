@@ -4,7 +4,7 @@ import Carousel from './CupcakeCarousel'
 
 export default function Cupkaes() {
 	return (
-		<section className='py-10 bg-color400 text-redColor'>
+		<section className='py-10 text-red-700 bg-red-100'>
 			< div className='container mx-auto' >
 				<h3 className='py-10 text-4xl text-center font-fancy'>Капкейки / Cupcakes</h3>
 				<div className="flex flex-col gap-3 p-2 mx-auto my-4 bg-white max-w-1/2 rounded-2xl">
@@ -22,12 +22,8 @@ export default function Cupkaes() {
 						<div className='px-4'>1 шт - 200 р</div>
 					</div>
 				</div>
-
-
-				<Carousel slideCount={4} />
-
+				<Carousel slideCount={5} />
 			</div >
 		</section>
-
 	)
 }
