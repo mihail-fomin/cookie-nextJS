@@ -2,10 +2,12 @@ import Chocolate from './Chocolate'
 import Cupkaes from './Cupcakes'
 import Macarons from './Macarons'
 import Trifle from './Trifle'
+import Cakes from './Cakes'
+import Bento from './Bento'
+
 
 export default function Assortment() {
 	return (
-
 		<section div className='py-10 text-red-700 bg-red-200' >
 			<div className='container mx-auto'>
 				<h2
@@ -17,6 +19,8 @@ export default function Assortment() {
 			<Cupkaes />
 			<Macarons />
 			<Trifle />
+			<Cakes />
+			<Bento />
 		</section >
 	)
 }
