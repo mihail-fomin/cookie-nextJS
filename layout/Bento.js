@@ -8,8 +8,8 @@ export default function Bento() {
 		<section className='bg-red-100 '>
 			<div className='container mx-auto'>
 				<h3 className='py-10 text-4xl text-center font-fancy'>Бенто-Торты / Bento cakes</h3>
-				<ul>
-					<li>Ваниль-арахис-карамель</li>
+				<ul className='list-disc'>
+					<li >Ваниль-арахис-карамель</li>
 					<li>Ваниль-малина-кокос</li>
 					<li>Шоколад-арахис-карамель</li>
 					<li>Шоколад-вишня</li>
