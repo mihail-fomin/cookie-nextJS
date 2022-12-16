@@ -124,7 +124,7 @@ export default function ContactForm() {
 					onChange={e => textHandler(e)}
 				/>
 				<button
-					className='block p-2 border border-red-700 disabled:cursor-not-allowed '
+					className='block p-2 border bg-red-400 border-red-700 disabled:cursor-not-allowed '
 					disabled={!formValid}
 					type="submit"
 				>
