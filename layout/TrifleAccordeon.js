@@ -46,29 +46,16 @@ export default function Accordeon() {
 											<li className='li-marker'>арахис</li>
 											<li className='li-marker'>классический крем-чиз</li>
 										</ul>
-										<div className='flex'>
+										<div className=''>
 											<div className='flex items-center py-4 '>
-												<div className='relative w-12 h-12 rounded-xl'>
-													<Image
-														objectFit="cover"
-														src='/images/icons/icons/weight.png'
-														alt='weight:'
-														fill
-														priority
-													/>
+												<div className='w-8'>
+													<img src='/images/icons/icons/weight.png' alt="weight:"></img>
 												</div>
-
 												<div className='px-4'>Заказ от 4 шт</div>
 											</div>
 											<div className='flex items-center p2-4 '>
-												<div className='relative w-12 h-12'>
-													<Image
-														objectFit="cover"
-														src='/images/icons/icons/ruble.png'
-														alt='cost:'
-														fill
-														priority
-													/>
+												<div className='w-8 '>
+													<img src='/images/icons/icons/ruble.png' alt="costs:"></img>
 												</div>
 												<div className='px-4'>150 р/шт</div>
 											</div>
@@ -119,29 +106,16 @@ export default function Accordeon() {
 											<li className='li-marker'>миндаль</li>
 											<li className='li-marker'>сгущенное молоко</li>
 										</ul>
-										<div className='flex'>
+										<div className=''>
 											<div className='flex items-center py-4 '>
-												<div className='relative w-12 h-12 rounded-xl'>
-													<Image
-														objectFit="cover"
-														src='/images/icons/icons/weight.png'
-														alt='weight:'
-														fill
-														priority
-													/>
+												<div className='w-8'>
+													<img src='/images/icons/icons/weight.png' alt="weight:"></img>
 												</div>
-
 												<div className='px-4'>Заказ от 4 шт</div>
 											</div>
 											<div className='flex items-center p2-4 '>
-												<div className='relative w-12 h-12'>
-													<Image
-														objectFit="cover"
-														src='/images/icons/icons/ruble.png'
-														alt='cost:'
-														fill
-														priority
-													/>
+												<div className='w-8 '>
+													<img src='/images/icons/icons/ruble.png' alt="costs:"></img>
 												</div>
 												<div className='px-4'>150 р/шт</div>
 											</div>
@@ -191,29 +165,16 @@ export default function Accordeon() {
 											<li className='li-marker'>крем на основе маскарпоне</li>
 											<li className='li-marker'>какао</li>
 										</ul>
-										<div className='flex'>
+										<div className=''>
 											<div className='flex items-center py-4 '>
-												<div className='relative w-12 h-12 rounded-xl'>
-													<Image
-														objectFit="cover"
-														src='/images/icons/icons/weight.png'
-														alt='weight:'
-														fill
-														priority
-													/>
+												<div className='w-8'>
+													<img src='/images/icons/icons/weight.png' alt="weight:"></img>
 												</div>
-
 												<div className='px-4'>Заказ от 4 шт</div>
 											</div>
 											<div className='flex items-center p2-4 '>
-												<div className='relative w-12 h-12'>
-													<Image
-														objectFit="cover"
-														src='/images/icons/icons/ruble.png'
-														alt='cost:'
-														fill
-														priority
-													/>
+												<div className='w-8 '>
+													<img src='/images/icons/icons/ruble.png' alt="costs:"></img>
 												</div>
 												<div className='px-4'>150 р/шт</div>
 											</div>

@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { twMerge } from 'tailwind-merge'
+import Link from 'next/link'
 
 export default function Header({ className = "" }) {
 	return (
@@ -24,10 +25,54 @@ export default function Header({ className = "" }) {
 						</div>
 					</div>
 					<menu className='flex items-center gap-4 text-3xl '>
-						<a className='hover:underline' href='#'>Обо мне</a>
-						<a className='hover:underline' href='#'>Ассортимент</a>
-						<a className='hover:underline' href='#'>Отзывы</a>
-						<a className='hover:underline' href='#'>Контакты</a>
+						<Link
+							activeClass='active'
+							to='about'
+							spy={true}
+							smooth={true}
+							offset={50}
+							duration={500}
+							className='hover:underline'
+							href='#'
+						>
+							Обо мне
+						</Link>
+						<Link
+							activeClass='active'
+							to='assortment'
+							spy={true}
+							smooth={true}
+							offset={50}
+							duration={500}
+							className='hover:underline'
+							href='#'
+						>
+							Ассортимент
+						</Link>
+						<Link
+							activeClass='active'
+							to='reviews'
+							spy={true}
+							smooth={true}
+							offset={50}
+							duration={500}
+							className='hover:underline'
+							href='#'
+						>
+							Отзывы
+						</Link>
+						<Link
+							activeClass='active'
+							to='contacts'
+							spy={true}
+							smooth={true}
+							offset={50}
+							duration={500}
+							className='hover:underline'
+							href='#'
+						>
+							Контакты
+						</Link>
 					</menu>
 				</div>
 			</div>

@@ -10,14 +10,8 @@ export default function Cupkaes() {
 				<div className="flex flex-col gap-3 p-2 mx-auto my-4 bg-white max-w-1/2 rounded-2xl">
 					<p>Вы можете заказать капкейки в количестве от 6 шт и более.</p>
 					<div className='flex items-center p2-4 '>
-						<div className='relative w-12 h-12'>
-							<Image
-								objectFit="cover"
-								src='/images/icons/icons/ruble.png'
-								alt='cost:'
-								fill
-								priority
-							/>
+						<div className='w-8 '>
+							<img src='/images/icons/icons/ruble.png' alt="costs:"></img>
 						</div>
 						<div className='px-4'>1 шт - 200 р</div>
 					</div>

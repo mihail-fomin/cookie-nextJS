@@ -28,6 +28,10 @@ module.exports = {
 			dropShadow: {
 				'xl': '0px 8px 5px #BA1C36',
 			},
+
+			maxHeight: {
+				'xl': '36rem',
+			}
 		},
 
 		fontFamily: {

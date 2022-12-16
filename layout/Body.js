@@ -2,6 +2,7 @@ import AboutMe from './AboutMe'
 import Features from './Features'
 import Intro from './Intro'
 import Assortment from './Assortment'
+import Contact from './Contact'
 
 export default function Body() {
 	return (
@@ -10,6 +11,7 @@ export default function Body() {
 			<AboutMe />
 			<Features />
 			<Assortment />
+			<Contact />
 		</body >
 
 	)

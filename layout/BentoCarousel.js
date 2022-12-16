@@ -92,7 +92,7 @@ const EmblaCarousel = ({ slideCount, options = { loop: false } }) => {
 									<div className="absolute block w-auto min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 max-w-none rounded-3xl">
 										<Image
 											objectFit="cover"
-											src={`/images/goods/bento/bento_${(i % 5) + 1}.jpg`}
+											src={`/images/goods/bento/bento_${(i % 3) + 1}.jpg`}
 											alt="cupcake"
 											fill
 										/>

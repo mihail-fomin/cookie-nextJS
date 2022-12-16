@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import ReactPlayer from 'react-player'
 import Carousel from './MacaronsCarousel'
 
@@ -10,14 +9,8 @@ export default function Cupkaes() {
 				<div className="flex flex-col gap-3 p-2 mx-auto my-4 bg-white max-w-1/2 rounded-2xl">
 					<p>Вы можете заказать Макаронс в количестве от 6 шт и более.</p>
 					<div className='flex items-center p2-4 '>
-						<div className='relative w-12 h-12'>
-							<Image
-								objectFit="cover"
-								src='/images/icons/icons/ruble.png'
-								alt='cost:'
-								fill
-
-							/>
+						<div className='w-8 '>
+							<img src='/images/icons/icons/ruble.png' alt="costs:"></img>
 						</div>
 						<div className='px-4'>1 шт - 110 р</div>
 					</div>
@@ -27,7 +20,7 @@ export default function Cupkaes() {
 						<Carousel slideCount={6} />
 					</div >
 					< div className='w-1/3' >
-						<div className='overflow-hidden rounded-3xl'>
+						<div className='overflow-hidden rounded-3xl max-h-xl'>
 							<ReactPlayer
 								playing='true'
 								muted='true'
