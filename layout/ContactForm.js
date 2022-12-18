@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+
 
 export default function ContactForm() {
 	const TOKEN = "5775183225:AAGUPuyf5PHRfSa5Zoux-zz5_KWIx1vHAPo";
@@ -6,126 +7,77 @@ export default function ContactForm() {
 	const URI_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
 
 	const [name, setName] = useState('');
-	const [phone, setPhone] = useState('');
-	const [text, setText] = useState('');
 	const [nameDirty, setNameDirty] = useState(false);
-	const [phoneDirty, setPhoneDirty] = useState(false);
-	const [textDirty, setTextDirty] = useState(false);
-	const [nameError, setNameError] = useState('Поле "Имя" не может быть пустым');
-	const [phoneError, setPhoneError] = useState('Поле "Телефон" не может быть пустым');
-	const [textError, setTextError] = useState('Поле "Текст" не может быть пустым');
-	const [formValid, setFormValid] = useState(false)
+	const [nameError, setNameError] = useState('');
 
-	useEffect(() => {
-		if (setNameError || setPhoneError || setTextError) {
-			setFormValid(false)
-		} else {
-			setFormValid(true)
+	const onNameChange = React.useCallback((value) => {
+		if (!nameDirty) {
+			setNameDirty(true)
 		}
-	}, [nameError, phoneError, textError])
+		setName(value)
+		setNameError(validateName(value))
+	}, [nameDirty])
 
-	const nameHandler = (e) => {
-		setName(e.target.value)
-		const re = /^[a-zA-Zа-яА-Я'][a-zA-Zа-яА-Я-' ]+[a-zA-Zа-яА-Я']?$/u
-		if (!re.test(String(e.target.value))) {
-			setNameError('Введите только буквы')
-		} else {
-			setNameError('')
-		}
-	}
-	const phoneHandler = (e) => {
-		setPhone(e.target.value)
-		const re = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/u
-		if (!re.test(String(e.target.value))) {
-			setPhoneError('Введите корректный телефон')
-		} else {
-			setPhoneError('')
-		}
-	}
-	const textHandler = (e) => {
-		setText(e.target.value)
-		if ((String(e.target.value)).length < 10) {
-			setTextError('Введите корректный заказ')
-		} else {
-			setTextError('')
-		}
-	}
+	let formatBody = ({ sender, phone, orderText }) => `
+	<h4>Заявка с сайта</h4>
+	<p>
+	  <b>Отправитель:</b> ${sender}<br/>
+	  <b>Телефон:</b> ${phone}<br/>
+	  <b>Текст заказа:</b> ${orderText}
+	</p>
+ `
 
-	const blurHandler = (e) => {
+	const blurHandler = React.useCallback((e) => {
 		switch (e.target.id) {
 			case 'name':
 				setNameDirty(true)
 				break
-			case 'phone':
-				setPhoneDirty(true)
-				break
-			case 'message':
-				setTextDirty(true)
-				break
+
 		}
-	}
+	}, [])
 
 	const handleSubmit = e => {
+		// TODO reset ALL dirty, ALL errors, etc. to false if we don't redirect
+
 		e.preventDefault();
 		const data = {
 			name,
 			phone,
 			text,
 		};
-		fetch(URI_API)
-			.then((res) => {
-				this.name.value = "";
-				this.phone.value = "";
-				this.text.value = "";
-			})
-			.catch((err) => {
-				console.warn(err);
-			})
-			.finally(() => {
-				console.log('Конец');
-			})
 
 
+		fetch(`https://api.telegram.org/bot5775183225:AAGUPuyf5PHRfSa5Zoux-zz5_KWIx1vHAPo/sendMessage`, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				chat_id: "-1001759583869",
+				text: "<b>test</b>",
+				parse_mode: "html",
+			})
+		})
+			.then(resp => {
+				return resp.json()
+			})
 	};
+
+
 
 	return (
 		<div>
-			<form onSubmit={handleSubmit} className='container block mx-auto'>
+			<form className='container block mx-auto'>
 				<h3>Отправка формы заказа для связи</h3>
-				<label htmlFor="name">Имя:</label>
-				{(nameDirty && nameError) && <div className='text-red-800'>{nameError}</div>}
-				<input
-					className='block'
-					id="name"
-					type="text"
-					value={name}
-					onBlur={e => blurHandler(e)}
-					onChange={e => nameHandler(e)}
-				/>
-				<label htmlFor="phone">Телефон:</label>
-				{(phoneDirty && phoneError) && <div className='text-red-800'>{phoneError}</div>}
-				<input
-					className='block'
-					id="phone"
-					type="tel"
-					value={phone}
-					onBlur={e => blurHandler(e)}
-					onChange={e => phoneHandler(e)}
-				/>
-				<label htmlFor="message">Текст:</label>
-				{(textDirty && textError) && <div className='text-red-800'>{textError}</div>}
-				<textarea
-					className='block'
-					id="message"
-					type="text"
-					rows="4"
-					value={text}
-					onBlur={e => blurHandler(e)}
-					onChange={e => textHandler(e)}
+				<NameField
+					nameDirty={nameDirty}
+					nameError={nameError}
+					name={name}
+					blurHandler={blurHandler}
+					onChange={onNameChange}
 				/>
 				<button
-					className='block p-2 border bg-red-400 border-red-700 disabled:cursor-not-allowed '
-					disabled={!formValid}
+					className='block p-2 border border-red-700 disabled:cursor-not-allowed '
 					type="submit"
 				>
 					Send
@@ -134,3 +86,28 @@ export default function ContactForm() {
 		</div >
 	);
 }
+
+function validateName(name) {
+	if (!name) {
+		return "Заполните поле"
+	} else if ((String(e.target.value)).length < 3) {
+		return "Введите 3 буквы"
+	} else {
+		return ""
+	}
+}
+
+const NameField = React.memo(({ nameDirty, nameError, name, onBlur, onChange }) => {
+	return <>
+		<label htmlFor="name">Имя:</label>
+		{(nameDirty && nameError) && <div className='text-red-800'>{nameError}</div>}
+		<input
+			className='block'
+			id="name"
+			type="text"
+			value={name}
+			onBlur={onBlur}
+			onChange={event => onChange(event.target.value)}
+		/>
+	</>
+})
