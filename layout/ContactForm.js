@@ -32,7 +32,6 @@ export default function ContactForm() {
 			case 'name':
 				setNameDirty(true)
 				break
-
 		}
 	}, [])
 
@@ -77,7 +76,7 @@ export default function ContactForm() {
 					onChange={onNameChange}
 				/>
 				<button
-					className='block p-2 border border-red-700 disabled:cursor-not-allowed '
+					className='block p-2 border border-red-700'
 					type="submit"
 				>
 					Send
@@ -91,7 +90,7 @@ function validateName(name) {
 	if (!name) {
 		return "Заполните поле"
 	} else if ((String(e.target.value)).length < 3) {
-		return "Введите 3 буквы"
+		return "Введите хотябы 3 буквы("
 	} else {
 		return ""
 	}
