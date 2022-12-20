@@ -75,17 +75,17 @@ export default function ContactForm() {
 
 
 		let formatBody = ({ name, phone, text }) => `
-  			<strong>Заявка с сайта</strong>n/
-    		<b>Отправитель:</b> ${name}n/
-    		<b>Телефон:</b> ${phone}n/
+  			<strong>Заявка с сайта</strong>
+    		<b>Отправитель:</b> ${name}
+    		<b>Телефон:</b> ${phone}
     		<b>Текст заказа:</b> ${text}
 `
 
-		// let body = formatBody({
-		// 	sender: this.name.value,
-		// 	phone: this.phone.value,
-		// 	orderText: this.text.value,
-		// })
+		let body = formatBody({
+			name: name,
+			phone: phone,
+			text: text,
+		})
 
 		fetch(`https://api.telegram.org/bot5775183225:AAGUPuyf5PHRfSa5Zoux-zz5_KWIx1vHAPo/sendMessage`, {
 			method: "POST",
@@ -94,26 +94,26 @@ export default function ContactForm() {
 			},
 			body: JSON.stringify({
 				chat_id: "-1001759583869",
-				text: formatBody,
+				text: body,
 				parse_mode: "html",
 			})
-
-				.then(resp => {
-					return resp.json()
-					setName('');
-					setPhone('');
-					setText('');
-					setNameDirty(false);
-					setPhoneDirty(false);
-					setTextDirty(false);
-				})
-				.catch((err) => {
-					console.warn(err);
-				})
-				.finally(() => {
-					console.log('Конец');
-				})
 		})
+			.then(resp => {
+				return resp.json()
+				setName('');
+				setPhone('');
+				setText('');
+				setNameDirty(false);
+				setPhoneDirty(false);
+				setTextDirty(false);
+			})
+			.catch((err) => {
+				console.warn(err);
+			})
+			.finally(() => {
+				console.log('Конец');
+			})
+
 	};
 
 
