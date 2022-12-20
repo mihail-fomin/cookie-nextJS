@@ -69,22 +69,23 @@ export default function ContactForm() {
 		}
 	}, [])
 
-	const handleSubmit = () => {
+	const handleSubmit = (e) => {
+		e.preventDefault();
 		// TODO reset ALL dirty, ALL errors, etc. to false if we don't redirect
 
 
-		let formatBody = ({ sender, phone, orderText }) => `
+		let formatBody = ({ name, phone, text }) => `
   			<strong>Заявка с сайта</strong>n/
     		<b>Отправитель:</b> ${name}n/
     		<b>Телефон:</b> ${phone}n/
     		<b>Текст заказа:</b> ${text}
 `
 
-		let body = formatBody({
-			sender: this.name.value,
-			phone: this.phone.value,
-			orderText: this.text.value,
-		})
+		// let body = formatBody({
+		// 	sender: this.name.value,
+		// 	phone: this.phone.value,
+		// 	orderText: this.text.value,
+		// })
 
 		fetch(`https://api.telegram.org/bot5775183225:AAGUPuyf5PHRfSa5Zoux-zz5_KWIx1vHAPo/sendMessage`, {
 			method: "POST",
@@ -96,22 +97,23 @@ export default function ContactForm() {
 				text: formatBody,
 				parse_mode: "html",
 			})
+
+				.then(resp => {
+					return resp.json()
+					setName('');
+					setPhone('');
+					setText('');
+					setNameDirty(false);
+					setPhoneDirty(false);
+					setTextDirty(false);
+				})
+				.catch((err) => {
+					console.warn(err);
+				})
+				.finally(() => {
+					console.log('Конец');
+				})
 		})
-			.then(resp => {
-				return resp.json()
-				setName('');
-				setPhone('');
-				setText('');
-				setNameDirty(false);
-				setPhoneDirty(false);
-				setTextDirty(false);
-			})
-			.catch((err) => {
-				console.warn(err);
-			})
-			.finally(() => {
-				console.log('Конец');
-			})
 	};
 
 
@@ -142,7 +144,7 @@ export default function ContactForm() {
 					onChange={onTextChange}
 				/>
 				<button
-					className='block p-2 border border-red-700'
+					className='block p-2 my-2 border border-red-700'
 					type="submit"
 					onClick={handleSubmit}
 				>
