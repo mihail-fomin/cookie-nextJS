@@ -15,7 +15,9 @@ export default function ContactForm() {
 	const [nameError, setNameError] = useState('');
 	const [phoneError, setPhoneError] = useState('');
 	const [textError, setTextError] = useState('');
-	const [formValid, setformValid] = useState(false);
+	const isFormDirty = nameDirty || phoneDirty || textDirty
+	const errorCount = validateForm({name, phone, text})
+	const isFormValid = errorCount == 0
 
 	const onNameChange = React.useCallback((value) => {
 		if (!nameDirty) {
@@ -40,7 +42,6 @@ export default function ContactForm() {
 		setText(value)
 		setTextError(validateText(value))
 	}, [textDirty])
-
 
 	let formatBody = ({ sender, phone, orderText }) => `
 	<h4>Заявка с сайта</h4>
@@ -74,11 +75,11 @@ export default function ContactForm() {
 
 
 		let formatBody = ({ sender, phone, orderText }) => `
-  			<strong>Заявка с сайта</strong>n/
-    		<b>Отправитель:</b> ${name}n/
-    		<b>Телефон:</b> ${phone}n/
-    		<b>Текст заказа:</b> ${text}
-`
+			<strong>Заявка с сайта</strong>n/
+			<b>Отправитель:</b> ${name}n/
+			<b>Телефон:</b> ${phone}n/
+			<b>Текст заказа:</b> ${text}
+		`
 
 		let body = formatBody({
 			sender: this.name.value,
@@ -114,13 +115,12 @@ export default function ContactForm() {
 			})
 	};
 
-
-
 	return (
 		<div>
 			<form className='container block mx-auto'>
 				<h3>Отправка формы заказа для связи</h3>
 				<NameField
+					required
 					nameDirty={nameDirty}
 					nameError={nameError}
 					name={name}
@@ -128,6 +128,7 @@ export default function ContactForm() {
 					onChange={onNameChange}
 				/>
 				<PhoneField
+					required
 					phoneDirty={phoneDirty}
 					phoneError={phoneError}
 					phone={phone}
@@ -135,6 +136,7 @@ export default function ContactForm() {
 					onChange={onPhoneChange}
 				/>
 				<TextField
+					required
 					textDirty={phoneDirty}
 					textError={textError}
 					text={text}
@@ -142,6 +144,7 @@ export default function ContactForm() {
 					onChange={onTextChange}
 				/>
 				<button
+					disabled={!isFormValid}
 					className='block p-2 border border-red-700'
 					type="submit"
 					onClick={handleSubmit}
@@ -154,7 +157,7 @@ export default function ContactForm() {
 }
 
 function validateName(name) {
-	const re = /^[a-zA-Z'][a-zA-Z-' ]+[a-zA-Z']?$/u
+	const re = /^[-A-ZА-Я' ]+?$/iu
 	if (!name) {
 		return "Заполните поле"
 	} else if (!re.test(String(name))) {
@@ -183,9 +186,14 @@ function validateText(text) {
 	}
 }
 
-const NameField = React.memo(({ nameDirty, nameError, name, onBlur, onChange }) => {
+// Returns # of errors (0+)
+function validateForm({name, phone, text}) {
+	return [validateName(name), validatePhone(phone), validateText(text)].filter(Boolean).length
+}
+
+const NameField = React.memo(({ required, nameDirty, nameError, name, onBlur, onChange }) => {
 	return <>
-		<label htmlFor="name">Имя:</label>
+		<label htmlFor="name">Имя: {required && "*"}</label>
 		{(nameDirty && nameError) && <div className='text-red-800'>{nameError}</div>}
 		<input
 			className='block p-2'
@@ -198,9 +206,9 @@ const NameField = React.memo(({ nameDirty, nameError, name, onBlur, onChange }) 
 	</>
 })
 
-const PhoneField = React.memo(({ phoneDirty, phoneError, phone, onBlur, onChange }) => {
+const PhoneField = React.memo(({ required, phoneDirty, phoneError, phone, onBlur, onChange }) => {
 	return <>
-		<label htmlFor="phone">Телефон:</label>
+		<label htmlFor="phone">Телефон: {required && "*"}</label>
 		{(phoneDirty && phoneError) && <div className='text-red-800'>{phoneError}</div>}
 		<input
 			className='block p-2'
@@ -213,9 +221,9 @@ const PhoneField = React.memo(({ phoneDirty, phoneError, phone, onBlur, onChange
 	</>
 })
 
-const TextField = React.memo(({ textDirty, textError, text, onBlur, onChange }) => {
+const TextField = React.memo(({ required, textDirty, textError, text, onBlur, onChange }) => {
 	return <>
-		<label htmlFor="text">Введите текст заказа:</label>
+		<label htmlFor="text">Введите текст заказа: {required && "*"}</label>
 		{(textDirty && textError) && <div className='text-red-800'>{textError}</div>}
 		<textarea
 			className='block min-h-[150px] p-2'
