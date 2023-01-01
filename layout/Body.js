@@ -6,13 +6,12 @@ import Contact from './Contact'
 
 export default function Body() {
 	return (
-		<body>
+		<div>
 			<Intro />
 			<AboutMe />
 			<Features />
 			<Assortment />
 			<Contact />
-		</body >
-
+		</div>
 	)
 }

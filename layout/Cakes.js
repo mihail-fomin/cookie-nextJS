@@ -63,6 +63,6 @@ export default function CakesSection() {
 		<section className='bg-red-400'>
 			<h3 className='py-10 text-4xl text-center text-white font-fancy'>Торты / Cakes</h3>
 			<CakesGrid />
-		</section >
+		</section>
 	);
 }
