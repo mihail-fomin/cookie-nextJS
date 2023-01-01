@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import { twMerge } from 'tailwind-merge'
-import * as Scroll from 'react-scroll';
-import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { Link } from 'react-scroll'
 
 function HeaderLink({ children }) {
 	return (<Link

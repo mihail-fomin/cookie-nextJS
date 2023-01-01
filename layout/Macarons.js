@@ -1,5 +1,10 @@
-import ReactPlayer from 'react-player'
 import Carousel from './MacaronsCarousel'
+import dynamic from 'next/dynamic'
+
+const ReactPlayer = dynamic(
+	() => import("react-player"),
+	{ ssr: false }
+)
 
 export default function Cupkaes() {
 	return (
@@ -18,8 +23,8 @@ export default function Cupkaes() {
 				<div className='flex justify-between gap-12'>
 					<div className='w-2/3'>
 						<Carousel slideCount={6} />
-					</div >
-					< div className='w-1/3' >
+					</div>
+					<div className='w-1/3'>
 						<div className='overflow-hidden rounded-3xl max-h-xl'>
 							<ReactPlayer
 								playing='true'
@@ -33,7 +38,7 @@ export default function Cupkaes() {
 								objectFit="cover"
 							/>
 						</div>
-					</div >
+					</div>
 				</div>
 
 
