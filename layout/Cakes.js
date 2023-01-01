@@ -1,11 +1,17 @@
 import React from 'react';
 
-function CakesCell() {
+
+function CakesCell({
+	cakeID,
+	cakeName,
+	cakeWeight,
+	cakeCost,
+}) {
 	return <div className='relative h-[600px] overflow-hidden group'>
 		<img
 			className="absolute"
 			objectFit="cover"
-			src='/images/goods/cakes/cake_2.jpg'
+			src={cakeID}
 			alt='cakeImage'
 			fill
 		/>
@@ -20,7 +26,7 @@ function CakesCell() {
 					/>
 				</div>
 			</div>
-			<div className="relative">Торт "Сникерс"</div>
+			<div className="relative">{cakeName}</div>
 			<div className='relative flex items-center pt-2'>
 				<div className='relative w-8 aspect-square'>
 					<img
@@ -30,7 +36,7 @@ function CakesCell() {
 						fill
 					/>
 				</div>
-				<div className='px-4'>3 кг</div>
+				<div className='px-4'>{cakeWeight}</div>
 			</div>
 			<div className='relative flex items-center '>
 				<div className='relative w-8 aspect-square'>
@@ -41,7 +47,7 @@ function CakesCell() {
 						fill
 					/>
 				</div>
-				<div className='px-4'>4500 р</div>
+				<div className='px-4'>{cakeCost}</div>
 			</div>
 		</div>
 	</div>
@@ -50,10 +56,30 @@ function CakesCell() {
 function CakesGrid() {
 	return (
 		<div className='grid grid-cols-2'>
-			<CakesCell />
-			<CakesCell />
-			<CakesCell />
-			<CakesCell />
+			<CakesCell
+				cakeID={`/images/goods/cakes/cake_1.jpg`}
+				cakeName={'Торт "Апельсин - манго-маракуйя'}
+				cakeWeight={'3кг'}
+				cakeCost={'4500р'}
+			/>
+			<CakesCell
+				cakeID={`/images/goods/cakes/cake_2.jpg`}
+				cakeName={'Торт "Шоколад - хрустящий слой"'}
+				cakeWeight={'1кг'}
+				cakeCost={'2200р'}
+			/>
+			<CakesCell
+				cakeID={`/images/goods/cakes/cake_3.jpg`}
+				cakeName={'Торт "Шоколад - черная смородина"'}
+				cakeWeight={'1кг'}
+				cakeCost={'2000р'}
+			/>
+			<CakesCell
+				cakeID={`/images/goods/cakes/cake_4.jpg`}
+				cakeName={'Торт "Шоколад-малина/вишня"'}
+				cakeWeight={'1кг'}
+				cakeCost={'2000р'}
+			/>
 		</div>
 	)
 }
