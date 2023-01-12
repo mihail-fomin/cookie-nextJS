@@ -73,7 +73,12 @@ export default function ContactForm() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		// TODO reset ALL dirty, ALL errors, etc. to false if we don't redirect
-
+		setName('');
+		setPhone('');
+		setText('');
+		setNameDirty(false);
+		setPhoneDirty(false);
+		setTextDirty(false);
 
 		let formatBody = ({ name, phone, text }) => `
   			<strong>Заявка с сайта</strong>
@@ -101,12 +106,6 @@ export default function ContactForm() {
 		})
 			.then(resp => {
 				return resp.json()
-				setName('');
-				setPhone('');
-				setText('');
-				setNameDirty(false);
-				setPhoneDirty(false);
-				setTextDirty(false);
 			})
 			.catch((err) => {
 				console.warn(err);
