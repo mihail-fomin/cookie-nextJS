@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {InputField, TextareaField} from "layout/Form"
+import { InputField, TextareaField } from "../layout/Form"
 
 export default function ContactForm() {
 	const TOKEN = "5775183225:AAGUPuyf5PHRfSa5Zoux-zz5_KWIx1vHAPo";
@@ -17,7 +17,7 @@ export default function ContactForm() {
 
 	const [messageError, setMessageError] = useState('');
 	const isFormDirty = nameDirty || phoneDirty || messageDirty
-	const errorCount = validateForm({name, phone, message})
+	const errorCount = validateForm({ name, phone, message })
 
 	const isFormValid = errorCount == 0
 
@@ -186,7 +186,7 @@ function validateMessage(message) {
 }
 
 // Returns # of errors (0+)
-function validateForm({name, phone, message}) {
+function validateForm({ name, phone, message }) {
 	return [validateName(name), validatePhone(phone), validateMessage(message)].filter(Boolean).length
 
 }
