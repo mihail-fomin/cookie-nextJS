@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import {InputField, TextareaField} from "layout/Form"
 
 export default function ContactForm() {
 	const TOKEN = "5775183225:AAGUPuyf5PHRfSa5Zoux-zz5_KWIx1vHAPo";
@@ -8,15 +8,17 @@ export default function ContactForm() {
 
 	const [name, setName] = useState('');
 	const [phone, setPhone] = useState('');
-	const [text, setText] = useState('');
+	const [message, setMessage] = useState('');
 	const [nameDirty, setNameDirty] = useState(false);
 	const [phoneDirty, setPhoneDirty] = useState(false);
-	const [textDirty, setTextDirty] = useState(false);
+	const [messageDirty, setMessageDirty] = useState(false);
 	const [nameError, setNameError] = useState('');
 	const [phoneError, setPhoneError] = useState('');
-	const [textError, setTextError] = useState('');
-	const isFormDirty = nameDirty || phoneDirty || textDirty
-	const errorCount = validateForm({ name, phone, text })
+
+	const [messageError, setMessageError] = useState('');
+	const isFormDirty = nameDirty || phoneDirty || messageDirty
+	const errorCount = validateForm({name, phone, message})
+
 	const isFormValid = errorCount == 0
 
 	const onNameChange = React.useCallback((value) => {
@@ -35,20 +37,20 @@ export default function ContactForm() {
 		setPhoneError(validatePhone(value))
 	}, [phoneDirty])
 
-	const onTextChange = React.useCallback((value) => {
-		if (!textDirty) {
-			setTextDirty(true)
+	const onMessageChange = React.useCallback((value) => {
+		if (!messageDirty) {
+			setMessageDirty(true)
 		}
-		setText(value)
-		setTextError(validateText(value))
-	}, [textDirty])
+		setMessage(value)
+		setMessageError(validateMessage(value))
+	}, [messageDirty])
 
-	let formatBody = ({ sender, phone, orderText }) => `
+	let formatBody = ({ sender, phone, message }) => `
 	<h4>Заявка с сайта</h4>
 	<p>
 	  <b>Отправитель:</b> ${sender}<br/>
 	  <b>Телефон:</b> ${phone}<br/>
-	  <b>Текст заказа:</b> ${orderText}
+	  <b>Сообщение:</b> ${message}
 	</p>
  `
 
@@ -60,12 +62,12 @@ export default function ContactForm() {
 		}
 		switch (e.target.id) {
 			case 'phone':
-				setNameDirty(true)
+				setPhoneDirty(true)
 				break
 		}
 		switch (e.target.id) {
-			case 'text':
-				setTextDirty(true)
+			case 'message':
+				setMessageDirty(true)
 				break
 		}
 	}, [])
@@ -73,24 +75,19 @@ export default function ContactForm() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		// TODO reset ALL dirty, ALL errors, etc. to false if we don't redirect
-		setName('');
-		setPhone('');
-		setText('');
-		setNameDirty(false);
-		setPhoneDirty(false);
-		setTextDirty(false);
 
-		let formatBody = ({ name, phone, text }) => `
-  			<strong>Заявка с сайта</strong>
-    		<b>Отправитель:</b> ${name}
-    		<b>Телефон:</b> ${phone}
-    		<b>Текст заказа:</b> ${text}
-`
+		let formatBody = ({ sender, phone, message }) => `
+			<strong>Заявка с сайта</strong>n/
+			<b>Отправитель:</b> ${name}n/
+			<b>Телефон:</b> ${phone}n/
+			<b>Сообщение:</b> ${message}
+		`
 
 		let body = formatBody({
-			name: name,
-			phone: phone,
-			text: text,
+			sender: this.name.value,
+			phone: this.phone.value,
+			message: this.message.value,
+
 		})
 
 		fetch(`https://api.telegram.org/bot5775183225:AAGUPuyf5PHRfSa5Zoux-zz5_KWIx1vHAPo/sendMessage`, {
@@ -120,29 +117,31 @@ export default function ContactForm() {
 		<div>
 			<form className='container block mx-auto'>
 				<h3>Отправка формы заказа для связи</h3>
-				<NameField
-					required
-					nameDirty={nameDirty}
-					nameError={nameError}
-					name={name}
-					blurHandler={blurHandler}
+				<InputField
+					type="text"
+					label={`Имя: *`}
+					dirty={nameDirty}
+					error={nameError}
+					value={name}
+					onBlur={blurHandler}
 					onChange={onNameChange}
 				/>
-				<PhoneField
-					required
-					phoneDirty={phoneDirty}
-					phoneError={phoneError}
-					phone={phone}
-					blurHandler={blurHandler}
+				<InputField
+					type="tel"
+					label={`Телефон: *`}
+					dirty={phoneDirty}
+					error={phoneError}
+					value={phone}
+					onBlur={blurHandler}
 					onChange={onPhoneChange}
 				/>
-				<TextField
-					required
-					textDirty={phoneDirty}
-					textError={textError}
-					text={text}
-					blurHandler={blurHandler}
-					onChange={onTextChange}
+				<TextareaField
+					label={`Сообщение: *`}
+					dirty={messageDirty}
+					error={messageError}
+					value={message}
+					onBlur={blurHandler}
+					onChange={onMessageChange}
 				/>
 				<button
 					className='block p-2 border border-red-700'
@@ -178,8 +177,8 @@ function validatePhone(phone) {
 	}
 }
 
-function validateText(text) {
-	if (!text) {
+function validateMessage(message) {
+	if (!message) {
 		return "Заполните поле"
 	} else {
 		return ""
@@ -187,52 +186,7 @@ function validateText(text) {
 }
 
 // Returns # of errors (0+)
-function validateForm({ name, phone, text }) {
-	return [validateName(name), validatePhone(phone), validateText(text)].filter(Boolean).length
+function validateForm({name, phone, message}) {
+	return [validateName(name), validatePhone(phone), validateMessage(message)].filter(Boolean).length
+
 }
-
-const NameField = React.memo(({ required, nameDirty, nameError, name, onBlur, onChange }) => {
-	return <>
-		<label htmlFor="name">Имя: {required && "*"}</label>
-		{(nameDirty && nameError) && <div className='text-red-800'>{nameError}</div>}
-		<input
-			className='block p-2'
-			id="name"
-			type="text"
-			value={name}
-			onBlur={onBlur}
-			onChange={event => onChange(event.target.value)}
-		/>
-	</>
-})
-
-const PhoneField = React.memo(({ required, phoneDirty, phoneError, phone, onBlur, onChange }) => {
-	return <>
-		<label htmlFor="phone">Телефон: {required && "*"}</label>
-		{(phoneDirty && phoneError) && <div className='text-red-800'>{phoneError}</div>}
-		<input
-			className='block p-2'
-			id="phone"
-			type="tel"
-			value={phone}
-			onBlur={onBlur}
-			onChange={event => onChange(event.target.value)}
-		/>
-	</>
-})
-
-const TextField = React.memo(({ required, textDirty, textError, text, onBlur, onChange }) => {
-	return <>
-		<label htmlFor="text">Введите текст заказа: {required && "*"}</label>
-		{(textDirty && textError) && <div className='text-red-800'>{textError}</div>}
-		<textarea
-			className='block min-h-[150px] p-2'
-			id="text"
-			type="text"
-			placeholder=''
-			value={text}
-			onBlur={onBlur}
-			onChange={event => onChange(event.target.value)}
-		/>
-	</>
-})
