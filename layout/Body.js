@@ -12,6 +12,6 @@ export default function Body() {
 			<Features />
 			<Assortment />
 			<Contact />
-		</div >
+		</div>
 	)
 }

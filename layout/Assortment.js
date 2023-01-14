@@ -17,10 +17,10 @@ export default function Assortment() {
 			</div>
 			<Chocolate />
 			<Cupkaes />
-			{/*<Macarons />*/}
+			<Macarons />
 			<Trifle />
 			<Cakes />
 			<Bento />
-		</section >
+		</section>
 	)
 }

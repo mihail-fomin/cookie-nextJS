@@ -14,9 +14,11 @@ export default function ContactForm() {
 	const [messageDirty, setMessageDirty] = useState(false);
 	const [nameError, setNameError] = useState('');
 	const [phoneError, setPhoneError] = useState('');
+
 	const [messageError, setMessageError] = useState('');
 	const isFormDirty = nameDirty || phoneDirty || messageDirty
 	const errorCount = validateForm({name, phone, message})
+
 	const isFormValid = errorCount == 0
 
 	const onNameChange = React.useCallback((value) => {
@@ -70,8 +72,10 @@ export default function ContactForm() {
 		}
 	}, [])
 
-	const handleSubmit = () => {
+	const handleSubmit = (e) => {
+		e.preventDefault();
 		// TODO reset ALL dirty, ALL errors, etc. to false if we don't redirect
+
 		let formatBody = ({ sender, phone, message }) => `
 			<strong>Заявка с сайта</strong>n/
 			<b>Отправитель:</b> ${name}n/
@@ -83,6 +87,7 @@ export default function ContactForm() {
 			sender: this.name.value,
 			phone: this.phone.value,
 			message: this.message.value,
+
 		})
 
 		fetch(`https://api.telegram.org/bot5775183225:AAGUPuyf5PHRfSa5Zoux-zz5_KWIx1vHAPo/sendMessage`, {
@@ -92,18 +97,12 @@ export default function ContactForm() {
 			},
 			body: JSON.stringify({
 				chat_id: "-1001759583869",
-				text: formatBody,
+				text: body,
 				parse_mode: "html",
 			})
 		})
 			.then(resp => {
 				return resp.json()
-				setName('');
-				setPhone('');
-				setMessage('');
-				setNameDirty(false);
-				setPhoneDirty(false);
-				setMessageDirty(false);
 			})
 			.catch((err) => {
 				console.warn(err);
@@ -111,6 +110,7 @@ export default function ContactForm() {
 			.finally(() => {
 				console.log('Конец');
 			})
+
 	};
 
 	return (
@@ -144,7 +144,6 @@ export default function ContactForm() {
 					onChange={onMessageChange}
 				/>
 				<button
-					disabled={!isFormValid}
 					className='block p-2 border border-red-700'
 					type="submit"
 					onClick={handleSubmit}
@@ -152,7 +151,7 @@ export default function ContactForm() {
 					Send
 				</button>
 			</form>
-		</div >
+		</div>
 	);
 }
 
@@ -189,4 +188,5 @@ function validateMessage(message) {
 // Returns # of errors (0+)
 function validateForm({name, phone, message}) {
 	return [validateName(name), validatePhone(phone), validateMessage(message)].filter(Boolean).length
+
 }

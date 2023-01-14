@@ -15,7 +15,7 @@ export default function Features() {
 					<div>Большое многообразие начинок</div>
 					<div>Оригинальный декор</div>
 				</div>
-			</div >
+			</div>
 		</section>
 
 	)
